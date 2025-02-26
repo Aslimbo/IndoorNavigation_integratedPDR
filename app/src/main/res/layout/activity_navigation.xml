@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:background="#F1EEFF"
+    android:padding="16dp"
+    tools:context=".NavigationActivity">
+
+    <!-- Title for Destination Selection -->
+    <TextView
+        android:id="@+id/textViewChooseDestination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Choose the destination:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Destination Buttons in One Row -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDirectorOffice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Director Office"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/primaryColor"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPantry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChooseDestination" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonPantry"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Pantry"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/primaryColor"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPostdocArea"
+        app:layout_constraintStart_toEndOf="@+id/buttonDirectorOffice"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChooseDestination" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonPostdocArea"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Postdoc Area"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/primaryColor"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonPantry"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChooseDestination" />
+
+    <!-- Map Container: FrameLayout wrapping customimageview and NavigationOverlay -->
+    <FrameLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDirectorOffice"
+        app:layout_constraintBottom_toTopOf="@+id/navigationControls"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Map View: Continues to update user location dynamically -->
+        <com.example.locate.customimageview
+            android:id="@+id/imageView_navigation_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/map_view_border"
+            android:scaleType="matrix"
+            app:srcCompat="@drawable/map_scaled" />
+
+        <!-- Navigation Overlay: Draws the navigation path on top -->
+        <com.example.locate.NavigationOverlay
+            android:id="@+id/navigationOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            android:clickable="false"
+            android:focusable="false"/>
+    </FrameLayout>
+
+
+    <!-- Buttons in Bottom-Right Corner -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/navigationControls"
+        android:layout_width="164dp"
+        android:layout_height="112dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Start Navigation Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonStartNavigation"
+            android:layout_width="155dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:text="Start"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primaryColor"
+            app:cornerRadius="8dp"
+            app:icon="@android:drawable/ic_media_play"
+            app:iconTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Quit Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonQuitNavigation"
+            android:layout_width="154dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:text="Quit"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/secondaryColor"
+            app:cornerRadius="8dp"
+            app:icon="@android:drawable/ic_menu_close_clear_cancel"
+            app:iconTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonStartNavigation" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/raw_RSSI_text"
+        android:layout_width="264dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="4dp"
+        android:padding="5dp"
+        android:text="Raw RSSIs:"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_navigation_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="NotSibling" />
+
+    <TextView
+        android:id="@+id/pso_Error_text"
+        android:layout_width="189dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="12dp"
+        android:padding="5dp"
+        android:text="PSO Error:"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/navigationControls"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_navigation_map"
+        tools:ignore="NotSibling" />
+
+    <TextView
+        android:id="@+id/navigationStatus"
+        android:layout_width="194dp"
+        android:layout_height="24dp"
+        android:text="Navigation Status"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationControls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/navigationControls"
+        app:layout_constraintVertical_bias="0.602" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loadingIndicatorContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Rotating ProgressBar -->
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- "Processing..." Text -->
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Processing..."
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/loadingProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/loadingProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/loadingProgressBar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- TextView to show Start and End Points in Left Bottom Corner -->
+
+    <!-- Locate Me Button with Navigation Arrow -->
+
+    <TextView
+        android:id="@+id/textViewStartEndCoordinates"
+        android:layout_width="196dp"
+        android:layout_height="35dp"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="4dp"
+        android:maxLines="3"
+        android:text="Start: N/A\nDestination: N/A"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/navigationControls"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonLocateMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="Locate me"
+        android:tint="@color/ap_white"
+        app:backgroundTint="@color/secondaryColor"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@id/navigationControls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="32dp"
+        app:srcCompat="@drawable/ic_navigation_arrow"
+        app:useCompatPadding="true" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

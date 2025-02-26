@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:background="#F1EEFF"
+    android:padding="16dp"
+    android:weightSum="1">
+
+
+    <RelativeLayout
+        android:id="@+id/fragment"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:gravity="top"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#FF0000"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="top"
+            android:background="@color/purple_200"
+            android:gravity="top"
+            android:visibility="invisible" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <Button
+        android:id="@+id/buttonNavigation"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:text="Navigation"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/navigationHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNavigation"
+        app:layout_constraintTop_toTopOf="@+id/buttonNavigation"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonNavigation"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonWIFI"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="WIFI"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBLE"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBLE"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="BLE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStop"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="68dp"
+        android:text="STOP"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUSB"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="invisible" />
+
+    <Button
+        android:id="@+id/buttonBLESerial"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="BLE Serial - wifi"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUSB"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonUSB"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="USB SERIAL-wifi"
+        app:layout_constraintBottom_toTopOf="@+id/buttonWIFI"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonMainOffice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Office"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    &lt;!&ndash; Button 2 &ndash;&gt;-->
+    <Button
+        android:id="@+id/buttonPantry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pantry"
+        app:layout_constraintBottom_toTopOf="@id/buttonMainOffice"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    &lt;!&ndash; Button 3 &ndash;&gt;-->
+    <Button
+        android:id="@+id/buttonMeetingRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meeting Room"
+        app:layout_constraintBottom_toTopOf="@id/buttonPantry"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonmcpeArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MCPE"
+        app:layout_constraintBottom_toTopOf="@id/buttonMeetingRoom"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.example.locate.customimageview
+        android:id="@+id/imageView_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment"
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/map_with_beacons"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <TextView
+        android:id="@+id/raw_RSSI_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-50dp"
+        android:padding="5dp"
+        android:text="Raw RSSIs:"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@id/appBarLayout"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <!--        app:layout_constraintBottom_toTopOf="parent"-->
+
+
+    <TextView
+        android:id="@+id/pso_Error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="PSO Error:"
+        android:textSize="11sp"
+        app:layout_constraintTop_toBottomOf="@id/raw_RSSI_text"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

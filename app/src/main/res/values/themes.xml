@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Locate" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- 主色 -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <!-- 主色变体 -->
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <!-- 次色 -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <!-- 状态栏颜色 -->
+        <item name="android:statusBarColor">@color/primaryDarkColor</item>
+    </style>
+</resources>

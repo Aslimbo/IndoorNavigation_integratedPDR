@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IndoorGuide</string>
+    <string name="devices">USB Devices</string>
+    <string name="map" />
+</resources>
