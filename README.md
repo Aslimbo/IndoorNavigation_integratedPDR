@@ -9,7 +9,4 @@ New beacons BSSIDs in the main office area.
 
 ~~Click the 'EXPERIMENT' button to use the Kaggle dataset for indoor positioning.~~
 
-~~Demo Video: [YouTube](https://youtu.be/FcpyOT55SWY)~~
-
-Report on Indoor Positioning Application Development of DL-based one: [YouTube](https://youtu.be/-vnb9UGy3qE)
-# Hadoop
+This is the basic version of the PDR-based Navigation App. 
